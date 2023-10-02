@@ -4,7 +4,7 @@
 <head>
     <title>Fetch Example</title>
     <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -15,16 +15,25 @@
 
 
         .custom-bg {
-            background-color: #1E2439;
+            background-color: #48495D;
+        }
+
+        .card-bg {
+            background-color: #E9EFFD;
         }
 
         .header {
             font-family: 'Handlee', sans-serif;
         }
+
+        .card-bg {
+            box-shadow: 50px 50px  rgba(0, 0, 0, 0.402);
+            /* Adjust values as needed */
+        }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="custom-bg">
     <!-- <button id="fetchButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Fetch Data
         </button> -->
@@ -56,6 +65,25 @@
             </svg>
         </div>
     </nav>
+
+
+    <div class="container mx-auto">
+
+        <div class="card-bg rounded-full p-16 flex items-center">
+
+
+            <!-- Avatar -->
+            <img src="rectangle.png" alt="Avatar" class="ml-4 w-24 h-24 rounded-full object-cover">
+
+            <!-- Container for Header and Dates -->
+            <!-- <div class="flex-1">
+                <h1 class="text-white text-xl">Header Here</h1>
+                <p class="text-white text-sm">Date 1</p>
+                <p class="text-white text-sm">Date 2</p>
+            </div> -->
+        </div>
+
+    </div>
 
     <!-- <script>
         const fetchButton = document.getElementById('fetchButton');
