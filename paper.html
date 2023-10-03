@@ -59,6 +59,15 @@
             width: 50px;
             height: 50px;
         }
+
+        @font-face {
+            font-family: 'Handlee';
+            src: url('fonts/Handlee-Regular.ttf') format('truetype');
+        }
+
+        .header {
+            font-family: 'Handlee', sans-serif;
+        }
     </style>
 </head>
 
@@ -68,7 +77,7 @@
         <div class="flex justify-center items-center">
             <!-- Canvas for the first SVG -->
             <canvas id="canvas1" class="pulsating-svg" resize></canvas>
-            <span class="header mx-8 text-3xl">SECRETO</span>
+            <span class="header mx-8 text-2xl">SECRETO</span>
             <!-- Canvas for the second SVG -->
             <canvas id="canvas2" class="pulsating-svg" resize></canvas>
         </div>
