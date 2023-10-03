@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./paperjs-v0.12.17/dist/paper-full.min.js"></script>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            // Tu SVG como una cadena (asegúrate de que todos los caracteres estén correctamente escapados)
+            var mySVG1 = `<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89" width="50" height="50">
+            <title>&lt;Path&gt;</title>
+            <style>
+            .s0 {
+                fill: #F8B4AC
+            }
+            </style>
+            <path id="&lt;Path&gt;" class="s0"
+            d="m62.4 70c15-10.5 26.8-24.7 25.5-41.9-0.3-4-1.5-8.1-4.1-11.1-3.5-4-8.9-5.7-14.1-5.6-8.4 0.2-16.3 4.5-22.3 10.3-6.1 5.9-10.5 13.1-15 20.2 1-10.6-0.8-21.4-5.1-31.1-2-4.5-5.2-9.3-10.1-10.1-6.3-1.2-11.8 4.9-14.1 10.9-3.2 8.3-3.4 17.8-0.4 26.2 6.3 17.5 16.7 32.3 21.7 50.7 11.1-3.5 25.6-9.8 38-18.5z" />
+            </svg>`;
+
+            var mySVG2 = `<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87 105" width="50" height="50">
+                <title>&lt;Path&gt;</title>
+                <style>
+                    .s0 {
+                        fill: #F8B4AC
+                    }
+                </style>
+                <path id="&lt;Path&gt;" class="s0"
+                    d="m85.7 11.3c-1.2-5.2-5-10.3-10.3-11.1-8.6-1.4-16.8 8-20 15-5.8 13.3-5.5 27-8.6 40.7-7.4-14.5-10.4-30.3-22.8-42-9-8.5-21.5-12.3-23.5 3.5-0.6 4.7 0.5 9.5 1.8 14.1 8 27.9 24.2 52 44.1 72.8 0.4 0.4 0.9 0.8 1.4 0.7 0.3-0.1 0.6-0.4 0.8-0.6 15.8-18.7 26.8-40.7 32.6-64.4 2.3-9 6.4-19 4.5-28.5q0-0.1 0-0.2z" />
+            </svg>`;
+
+            // Function to apply animations to the SVGs
+            function applyAnimation(canvasId, svgString) {
+                paper.setup(canvasId);
+                paper.project.importSVG(svgString, function (item) {
+                    item.scale(.5);
+                    item.position = paper.view.center;
+                    item.onFrame = function (event) {
+                        var scaleFactor = 1 + 0.005 * Math.sin(event.time * 8);
+                        item.scale(scaleFactor / item.scaling.x);
+                    };
+                });
+            }
+
+            // Apply animations to each SVG on respective canvases
+            applyAnimation('canvas1', mySVG1);
+            applyAnimation('canvas2', mySVG2);
+        };
+    </script>
+    <style>
+        .custom-bg {
+            background-color: #48495D;
+        }
+
+        .pulsating-svg {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="custom-bg text-white p-4">
+        <div class="flex justify-center items-center">
+            <!-- Canvas for the first SVG -->
+            <canvas id="canvas1" class="pulsating-svg" resize></canvas>
+            <span class="header mx-8 text-3xl">SECRETO</span>
+            <!-- Canvas for the second SVG -->
+            <canvas id="canvas2" class="pulsating-svg" resize></canvas>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>
