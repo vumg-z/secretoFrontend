@@ -1,4 +1,3 @@
+# .gitignore
 paperjs-v0.12.17/*
-
-# But do not ignore paper-full.min.js
 !paperjs-v0.12.17/dist/paper-full.min.js
